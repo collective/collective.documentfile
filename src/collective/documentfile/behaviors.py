@@ -28,8 +28,6 @@ class MetaFromFile(object):
 
         src_file = info.value
 
-        import pdb; pdb.set_trace()
-
         # need to let ComponentLookupError propagate if not found
         self.docfile = getAdapter(src_file, IDocumentInfo, name=src_file.contentType)
 
