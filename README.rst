@@ -23,12 +23,6 @@ Examples
 Add this package and a recent version of Products.OpenXml, grab a PowerPoint presentation, add a Document File and upload the presentation into it.
 
 
-Documentation
--------------
-
-Full documentation for end users can be found in the "docs" folder, and is also available online at http://docs.plone.org/foo/bar
-
-
 Translations
 ------------
 
