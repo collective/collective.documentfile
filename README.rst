@@ -6,19 +6,21 @@
 collective.documentfile
 ==============================================================================
 
-Tell me what your product does
 
 Features
 --------
 
-- Can be bullet points
+- basic framework to support copying and updating of various metadata from content primary file field
+- base adapter for adding support for more file types
+- a 'MetaFromFile' behavior for types that want to have their metadata updated from the primary file field
+- a basic 'Document File' implementation that provides a nice default view
+
 
 
 Examples
 --------
 
-This add-on can be seen in action at the following sites:
-- Is there a page on the internet where everybody can see the features?
+Add this package and a recent version of Products.OpenXml, grab a PowerPoint presentation, add a Document File and upload the presentation into it.
 
 
 Documentation
@@ -30,9 +32,7 @@ Full documentation for end users can be found in the "docs" folder, and is also 
 Translations
 ------------
 
-This product has been translated into
-
-- Klingon (thanks, K'Plai)
+Will soon be translated to Finnish.
 
 
 Installation
@@ -48,7 +48,7 @@ Install collective.documentfile by adding it to your buildout::
         collective.documentfile
 
 
-and then running ``bin/buildout``
+and then running ``bin/buildout``. Note that you will need some additional packages that provide the actual, file type -specific extraction of document file metadata.
 
 
 Contribute
@@ -56,15 +56,12 @@ Contribute
 
 - Issue Tracker: https://github.com/collective/collective.documentfile/issues
 - Source Code: https://github.com/collective/collective.documentfile
-- Documentation: https://docs.plone.org/foo/bar
 
 
 Support
 -------
 
-If you are having issues, please let us know.
-We have a mailing list located at: project@example.com
-
+If you are having issues, please submit them to tracker or contact the author.
 
 License
 -------
