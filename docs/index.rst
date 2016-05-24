@@ -1,0 +1,5 @@
+====================
+collective.documentfile
+====================
+
+User documentation

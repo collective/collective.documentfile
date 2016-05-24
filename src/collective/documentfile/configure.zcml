@@ -1,0 +1,58 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    i18n_domain="collective.documentfile">
+
+   <i18n:registerTranslations directory="locales" />
+
+   <includeDependencies package="." />
+
+   <include package=".browser" />
+
+   <include package="plone.behavior" file="meta.zcml" />
+
+   <interface interface=".interfaces.IDocumentFile"/>
+
+   <subscriber
+      for=".interfaces.IDocumentFile zope.lifecycleevent.interfaces.IObjectAddedEvent"
+      handler=".subscribers.update_meta_from_docfile"
+   />
+
+   <subscriber
+      for=".interfaces.IDocumentFile zope.lifecycleevent.interfaces.IObjectModifiedEvent"
+      handler=".subscribers.update_meta_from_docfile"
+   />
+
+  <plone:behavior
+      title="Meta from document file"
+      description="Update content metadata and cover image from the primary file field"
+      provides=".behaviors.IMetaFromFile"
+      factory=".behaviors.MetaFromFile"
+      marker=".interfaces.IDocumentFile"
+      />
+
+  <genericsetup:registerProfile
+      name="default"
+      title="collective.documentfile"
+      directory="profiles/default"
+      description="Installs the collective.documentfile add-on."
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      post_handler=".setuphandlers.post_install"
+      />
+
+  <genericsetup:registerProfile
+      name="uninstall"
+      title="collective.documentfile (uninstall)"
+      directory="profiles/uninstall"
+      description="Uninstalls the collective.documentfile add-on."
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      post_handler=".setuphandlers.uninstall"
+      />
+
+  <utility
+      factory=".setuphandlers.HiddenProfiles"
+      name="collective.documentfile-hiddenprofiles" />
+
+</configure>
