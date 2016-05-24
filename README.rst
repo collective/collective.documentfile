@@ -14,14 +14,23 @@ Features
 - base adapter for adding support for more file types
 - a 'MetaFromFile' behavior for types that want to have their metadata updated from the primary file field
 - a basic 'Document File' implementation that provides a nice default view
+- PDF support by installing collective.pdfdocument package (search github)
 
+Soon:
 
+- MS Office document support by installing Products.OpenXml and openxmllib packages (search github)
+
+For best experience, install plone.app.contenttypes on your Plone site; that will provide a nice folder
+summary view with preview images of all documents.
 
 Examples
 --------
 
-Add this package and a recent version of Products.OpenXml, grab a PowerPoint presentation, add a Document File and upload the presentation into it.
+Install the package in Plone, add a Document File and upload a document file. Enjoy the nice Plone content
+representation.
 
+Note that usually people don't bother with document metadata so check the source document file to make sure
+it has some metadata. For MS Office docs, make sure that "generate preview" is selected prior to saving the document.
 
 Translations
 ------------
