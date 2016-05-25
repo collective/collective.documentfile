@@ -25,7 +25,7 @@ class DocumentFileIntegrationTest(unittest.TestCase):
     def test_schema(self):
         fti = queryUtility(IDexterityFTI, name='DocumentFile')
         schema = fti.lookupSchema()
-        self.assertEqual(IDocumentFile, schema)
+        self.assertEqual(schema.__name__.split('_')[-1], "DocumentFile")
 
     def test_fti(self):
         fti = queryUtility(IDexterityFTI, name='DocumentFile')
