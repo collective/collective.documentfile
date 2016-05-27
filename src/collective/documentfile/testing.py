@@ -21,7 +21,7 @@ class CollectiveDocumentfileLayer(PloneSandboxLayer):
         self.loadZCML(package=collective.documentfile)
 
     def setUpPloneSite(self, portal):
-        applyProfile(portal, 'collective.documentfile:default')
+        applyProfile(portal, 'collective.documentfile:customtype')
 
 
 COLLECTIVE_DOCUMENTFILE_FIXTURE = CollectiveDocumentfileLayer()
