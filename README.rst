@@ -30,7 +30,7 @@ Features provided
   The adapter lookup can be switched on by assigning the 'Meta from document file'
   behavior.
 
-- A basic example 'Document File' Dexterity content type with the behavior assigned, that
+- A basic (optional) 'Document File' Dexterity content type with the behavior assigned, that
   gets its metadata and cover image automatically copied over from the uploaded document.
   The type has a 'file' field for storing documents, 'image' field for cover image and a nice
   default view ('docfileview').
