@@ -15,30 +15,34 @@ Nor does Plone provide a screenshot or cover page thumbnail of the document.
 
 This packages aims to provide those missing features.
 
-Features provided
-------------------
-
-- generic means to update content metadata from information extracted from a document file
-  stored in the primary file field of content schema, implemented as a behavior and a
-  specification for adding support for a particular document type
-
-- a basic content type implementation for storing documents, that gets its metadata and
-  cover image automatically copied over from the original document file
-
-The behavior can be used with any Dexterity content type. It does not however provide a
-cover image field: a image field named 'image' must be assigned separately, for example
-by also assigning the lead image behavior.
-
 Note that in addition to this package, you need additional packages that do the actual
 document-specific metadata extraction:
 
 - Products.OpenXml for MS Office document support
 - collective.pdfdocument for PDF support
 
-Adding support for other document types only requires registering a named adapter of
+Features provided
+------------------
+
+- Generic means to update content metadata from information extracted from a document file
+  stored in the primary file field of content schema. This is achieved using a subscriber
+  that attempts to adapt the primary file field contents (NamedFile) to IDocumentInfo.
+  The adapter lookup can be switched on by assigning the 'Meta from document file'
+  behavior.
+
+- A basic example 'Document File' Dexterity content type with the behavior assigned, that
+  gets its metadata and cover image automatically copied over from the uploaded document.
+  The type has a 'file' field for storing documents, 'image' field for cover image and a nice
+  default view ('docfileview').
+
+Note that the 'Meta from document file' behavior does not provide a cover image field. So
+in your own content type, a image field named 'image' must be assigned separately, for
+example by also assigning the lead image behavior to the content type.
+
+To add support for an additional document type, a named adapter is needed that adapts
 plone.namedfile.interfaces.INamedFile to collective.documentfile.interfaces.IDocumentFile,
-named according to the mime type of the document. There's also a base adapter that
-provides default empty values, useful for partial IDocumentInfo implementations, ie.
+named according to the mime type of the document type. See adapters.py for a base adapter
+that provides default empty values, useful for partial IDocumentInfo implementations, ie.
 when you only want some metadata updated from file rather than all of what IDocumentInfo
 specifies.
 
