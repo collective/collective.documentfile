@@ -30,17 +30,19 @@ Features provided
   The adapter lookup can be switched on by assigning the 'Meta from document file'
   behavior.
 
-- a basic content type implementation for storing documents, that gets its metadata and
-  cover image automatically copied over from the original document file
+- A basic example 'Document File' Dexterity content type with the behavior assigned, that
+  gets its metadata and cover image automatically copied over from the uploaded document.
+  The type has a 'file' field for storing documents, 'image' field for cover image and a nice
+  default view ('docfileview').
 
-The 'Meta from document file' behavior does not provide a cover image field: a image field
-named 'image' must be assigned separately, for example by also assigning the lead image
-behavior to the content type.
+Note that the 'Meta from document file' behavior does not provide a cover image field. So
+in your own content type, a image field named 'image' must be assigned separately, for
+example by also assigning the lead image behavior to the content type.
 
-Adding support for other document types only requires registering a named adapter of
+To add support for an additional document type, a named adapter is needed that adapts
 plone.namedfile.interfaces.INamedFile to collective.documentfile.interfaces.IDocumentFile,
-named according to the mime type of the document. There's also a base adapter that
-provides default empty values, useful for partial IDocumentInfo implementations, ie.
+named according to the mime type of the document type. See adapters.py for a base adapter
+that provides default empty values, useful for partial IDocumentInfo implementations, ie.
 when you only want some metadata updated from file rather than all of what IDocumentInfo
 specifies.
 
