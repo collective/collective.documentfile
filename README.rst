@@ -25,14 +25,22 @@ Features provided
 - a basic content type implementation for storing documents, that gets its metadata and
   cover image automatically copied over from the original document file
 
-To support various types of documents, install:
+The behavior can be used with any Dexterity content type. It does not however provide a
+cover image field: a image field named 'image' must be assigned separately, for example
+by also assigning the lead image behavior.
+
+Note that in addition to this package, you need additional packages that do the actual
+document-specific metadata extraction:
 
 - Products.OpenXml for MS Office document support
 - collective.pdfdocument for PDF support
 
 Adding support for other document types only requires registering a named adapter of
 plone.namedfile.interfaces.INamedFile to collective.documentfile.interfaces.IDocumentFile,
-named according to the mime type of the document.
+named according to the mime type of the document. There's also a base adapter that
+provides default empty values, useful for partial IDocumentInfo implementations, ie.
+when you only want some metadata updated from file rather than all of what IDocumentInfo
+specifies.
 
 Not provided
 -------------
