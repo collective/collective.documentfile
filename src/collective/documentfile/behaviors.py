@@ -60,15 +60,16 @@ class MetaFromFile(object):
             annotations["document_meta"]["pagecount"] = self.docfile.pagecount
 
     def update_image(self):
-        if self.docfile.image:
+        if self.docfile.image and hasattr(self.context, "image"):
             isuffix, idata = self.docfile.image
             itype = isuffix.lower().strip()
             imime = "image/" + isuffix
             ifilename = u"cover" + isuffix
             # if proper image exists, just (re)set the data and file name
-            if getattr(self.context, "image"):
+            if self.context.image:
                 self.context.image._setData(idata)
                 self.context.image.filename = ifilename
+            # otherwise add a blob image; TODO are there cases when should not use blob?
             else:
                 self.context.image=NamedBlobImage(data=idata, contentType=imime, filename=ifilename)
 
