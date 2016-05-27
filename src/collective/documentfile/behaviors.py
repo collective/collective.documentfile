@@ -11,7 +11,7 @@ from plone.namedfile.file import NamedBlobImage
 from plone.rfc822.interfaces import IPrimaryFieldInfo
 
 from .interfaces import IDocumentInfo
-
+from .adapters import EmptyDocumentInfo
 
 class IMetaFromFile(Interface):
     """Marker interface to enable metadata from file behavior"""
@@ -23,7 +23,8 @@ class MetaFromFile(object):
     def __init__(self, context):
         self.context = context
         info = IPrimaryFieldInfo(context, None)
-        if info is None:
+        if info is None or info.value is None:
+            self.docfile = EmptyDocumentInfo(context)
             return None
 
         src_file = info.value
