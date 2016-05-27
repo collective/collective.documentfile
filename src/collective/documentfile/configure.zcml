@@ -43,6 +43,14 @@
       />
 
   <genericsetup:registerProfile
+      name="customtype"
+      title="collective.documentfile plus 'Document File' type"
+      directory="profiles/customtype"
+      description="Installs the collective.documentfile add-on with a custom content type"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
+  <genericsetup:registerProfile
       name="uninstall"
       title="collective.documentfile (uninstall)"
       directory="profiles/uninstall"
