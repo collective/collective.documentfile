@@ -6,6 +6,9 @@
 collective.documentfile
 ==============================================================================
 
+.. image:: https://travis-ci.org/collective/collective.documentfile.svg
+    :target: https://travis-ci.org/collective/collective.documentfile
+
 Background information
 -----------------------
 
