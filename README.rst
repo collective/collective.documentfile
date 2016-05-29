@@ -12,9 +12,11 @@ collective.documentfile
 Background information
 -----------------------
 
-When Document files, such as MS Office or PDF documents are stored in Plone as
+When for example MS Office or PDF documents are stored in Plone, typically as normal
 File content, utilizing document metadata embedded in the documents is not possible.
-Nor does Plone provide a screenshot or cover page thumbnail of the document.
+Typically such metadata would include title, description and keywords, or EXIF/IPTC
+metadata for images. Nor does Plone provide a screenshot or cover page thumbnail of
+the document.
 
 This packages aims to provide those missing features.
 
