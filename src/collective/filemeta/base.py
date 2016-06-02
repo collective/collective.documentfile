@@ -4,7 +4,10 @@ from persistent.dict import PersistentDict
 
 from plone.namedfile.file import NamedBlobImage
 
+from . import ANNOTATION_KEY
+
 # base classes for content metadata updater utilities
+
 
 class MetadataAnnotationsUpdater(object):
    "store any metadata in annotations"
@@ -18,12 +21,17 @@ class MetadataAnnotationsUpdater(object):
       except:
          return
 
+      try:
+        meta = annotations[ANNOTATION_KEY]
+      except:
+        meta = annotations[ANNOTATION_KEY] = PersistentDict()
+
       if key:
-         if key not in annotations:
-            annotations[key] = PersistentDict()
-         annotations[key][name] = value
+         if key not in meta:
+            meta[key] = PersistentDict()
+         meta[key][name] = value
       else:
-         annotations[name] = value
+         meta[name] = value
 
 
 class DefaultImageUpdater(object):

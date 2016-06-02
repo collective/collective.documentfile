@@ -11,7 +11,7 @@ from Products.Five import BrowserView
 from Products.MimetypesRegistry.MimeTypeItem import guess_icon_path
 
 #from ..interfaces import IDocumentFile
-from .. import logger
+from .. import logger, ANNOTATION_KEY
 
 
 class FileMetaDisplay(BrowserView):
@@ -50,7 +50,7 @@ class FileMetaDisplay(BrowserView):
    def pagecount(self):
       "number of pages"
       try:
-         return IAnnotations(self.context)["document_meta"]["pagecount"]
+         return IAnnotations(self.context)[ANNOTATION_KEY]["pagecount"]
       except:
          return None
 
