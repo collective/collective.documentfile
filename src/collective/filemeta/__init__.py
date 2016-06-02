@@ -4,6 +4,11 @@
 import logging
 from zope.i18nmessageid import MessageFactory
 
-_ = MessageFactory('collective.filemeta')
 
-logger = logging.getLogger("collective.filemeta")
+PKG_NAME = "collective.filemeta"
+
+ANNOTATION_KEY = "filemeta"
+
+_ = MessageFactory(PKG_NAME)
+
+logger = logging.getLogger(PKG_NAME)
