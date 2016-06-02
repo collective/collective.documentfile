@@ -2,6 +2,7 @@ from zope.interface import implementer
 from zope.annotation import IAnnotations
 from persistent.dict import PersistentDict
 
+from plone.namedfile.file import NamedBlobImage
 
 # base classes for content metadata updater utilities
 
