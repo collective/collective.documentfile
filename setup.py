@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Installer for the collective.documentfile package."""
+"""Installer for the collective.filemeta package."""
 
 from setuptools import find_packages
 from setuptools import setup
@@ -13,7 +13,7 @@ long_description = '\n\n'.join([
 
 
 setup(
-    name='collective.documentfile',
+    name='collective.filemeta',
     version='1.0rc0',
     description="Document file (MS Office etc.)",
     long_description=long_description,
@@ -30,7 +30,7 @@ setup(
     keywords='Python Plone',
     author='Petri Savolainen',
     author_email='petri.savolainen@koodaamo.fi',
-    url='https://pypi.python.org/pypi/collective.documentfile',
+    url='https://pypi.python.org/pypi/collective.filemeta',
     license='GPL version 2',
     packages=find_packages('src', exclude=['ez_setup']),
     namespace_packages=['collective'],

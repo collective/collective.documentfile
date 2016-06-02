@@ -1,5 +1,5 @@
 ====================
-collective.documentfile
+collective.filemeta
 ====================
 
 User documentation
