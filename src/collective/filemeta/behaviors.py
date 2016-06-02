@@ -40,7 +40,7 @@ class MetaFromFile(object):
 
       # try to get a metadata provider utility for the content type
       try:
-         metadata = getUtility(IFileMetaProvider, name=self._file.contentType)
+         provider = getUtility(IFileMetaProvider, name=self._file.contentType)
       except ComponentLookupError:
          logger.warn("no metadata provider utility found for %s" % self._file.contentType)
          return
@@ -51,4 +51,5 @@ class MetaFromFile(object):
       except ComponentLookupError:
          logger.warn("no metadata updater utility found for %s" % self._file.contentType)
       else:
-         updater.update_content(self.context, metadata)
+         meta = provider.get_metadata(self._file.data, self._file.contentType)
+         updater.update_content(self.context, meta)
