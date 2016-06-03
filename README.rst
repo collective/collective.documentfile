@@ -70,10 +70,7 @@ Implementation notes
 
 Metadata is processed by a subscriber that attemtps to retrieve the metadata using a 'IFileMetaProvider' utility whose name matches the primary file field mime type. If the
 metadata can be extracted from file, it is copied over by another 'IContentMetaUpdater'
-utility whose name matches the metadata label (such as "title"), or metadata standard or
-format (such as "dc", for Dublin Core, or "exif"). There's also a 'IFileMetaUpdater'
-interface for updating the file when someone updates the metadata of the Plone content
-object.
+(likewise named) utility.
 
 
 Installation

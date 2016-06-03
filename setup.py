@@ -15,7 +15,7 @@ long_description = '\n\n'.join([
 setup(
     name='collective.filemeta',
     version='1.0rc1',
-    description="Document file (MS Office etc.)",
+    description="File-to-content metadata updating for Plone",
     long_description=long_description,
     # Get more from https://pypi.python.org/pypi?%3Aaction=list_classifiers
     classifiers=[
