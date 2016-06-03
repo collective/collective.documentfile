@@ -42,6 +42,7 @@ Features provided
 - Optionally enhanced built-in File content type so that it gets it metadata updated
   from uploaded file (including cover image)
 
+- A nicer default view (used both for the example type & enhanced File)
 
 Features not provided
 ----------------------
