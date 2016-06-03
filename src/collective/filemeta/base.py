@@ -39,6 +39,8 @@ class DefaultImageUpdater(object):
 
    @staticmethod
    def update_image(obj, image):
+      if not image:
+         return
       isuffix, idata = image
       itype = isuffix.lower().strip()
       imime = "image/" + isuffix
