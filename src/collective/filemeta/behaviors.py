@@ -51,5 +51,5 @@ class MetaFromFile(object):
       except ComponentLookupError:
          logger.warn("no metadata updater utility found for %s" % self._file.contentType)
       else:
-         meta = provider.get_metadata(self._file.data, self._file.contentType)
+         meta = provider.get_metadata(self._file.data, self._file.contentType, self._file.filename)
          updater.update_content(self.context, meta)
