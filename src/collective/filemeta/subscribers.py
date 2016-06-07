@@ -6,5 +6,5 @@ def update_meta_from_file(obj, evt):
 
    if IFileMetaProvided.providedBy(obj):
       behavior = IMetaFromFile(obj)
-      behavior.update_content()
+      behavior.update_content(evt)
 

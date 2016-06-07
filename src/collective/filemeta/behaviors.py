@@ -5,7 +5,7 @@ from persistent.dict import PersistentDict
 from zope.annotation import IAnnotations
 from zope.component import getUtility
 from zope.component.interfaces import ComponentLookupError
-
+from zope.lifecycleevent import ObjectAddedEvent
 from zope.interface import Interface
 from zope.interface import implementer
 
@@ -32,11 +32,13 @@ class MetaFromFile(object):
       else:
          self._file = info.value
 
-   def update_content(self):
+   def update_content(self, evt):
 
       # guard
       if not self._file:
          return
+
+      overwrite = True if isinstance(evt, ObjectAddedEvent) else False
 
       # try to get a metadata provider utility for the content type
       try:
@@ -52,4 +54,4 @@ class MetaFromFile(object):
          logger.warn("no metadata updater utility found for %s" % self._file.contentType)
       else:
          meta = provider.get_metadata(self._file.data, self._file.contentType, self._file.filename)
-         updater.update_content(self.context, meta)
+         updater.update_content(self.context, meta, overwrite=overwrite)
