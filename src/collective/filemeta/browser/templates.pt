@@ -19,16 +19,16 @@
 
     <p class="documentDescription" tal:content="context/description" />
 
-    <p>
+    <p class="fileinfo">
        <img tal:attributes="src view/iconurl"/>
        <span tal:content="view/doctype"/> (<span tal:content="string:${view/pagecount} pages, "/><span tal:content="view/sizelabel"/>)<br/>
-       <small>
+       <small class="downloadlink">
           <a tal:attributes="href string:${context/absolute_url}/@@download/file/$filename"
              tal:content="context/file/filename"/>
        </small>
     </p>
 
-    <p>
+    <p class="coverimage">
       <a tal:condition="context/image" tal:attributes="href string:${context/absolute_url}/@@download/file/$filename">
           <img tal:replace="structure context/@@images/image"/>
       </a>
