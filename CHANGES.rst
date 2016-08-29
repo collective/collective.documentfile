@@ -1,6 +1,11 @@
 Changelog
 =========
 
+1.0rc4 (2016-08-29)
+--------------------
+
+- Fix incorrect view name listed in default profile
+
 1.0rc3 (2016-06-08)
 --------------------
 
